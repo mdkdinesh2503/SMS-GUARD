@@ -20,9 +20,6 @@ export class AdminFeesComponent implements OnInit {
   FeesPaymentFromStudent: any;
 
   ngOnInit() {
-
-    this.auth.canAccessAdmin();
-
     this.service.getStudentCollegeFeesPaymentUrl().subscribe((data) => {
       this.FeesPaymentFromStudent = data;
     });
@@ -44,11 +41,11 @@ export class AdminFeesComponent implements OnInit {
 
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
-    // console.log(this.searchText);
   }
 
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutAdmin() == true;
   }
 }

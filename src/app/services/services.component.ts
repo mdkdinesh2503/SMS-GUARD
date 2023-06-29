@@ -11,7 +11,7 @@ export class ServicesComponent implements OnInit {
   constructor(private auth:AuthService) { }
 
   ngOnInit() {
-    this.auth.loginAccess(false);
+    this.auth.removeToken();
   }
 
 }

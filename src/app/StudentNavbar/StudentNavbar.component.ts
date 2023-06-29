@@ -12,13 +12,13 @@ export class StudentNavbarComponent implements OnInit {
   constructor(private route:Router,private auth:AuthService) { }
 
   ngOnInit() {
-    this.auth.canAccessStudent();
   }
 
   openPage() {
     if(confirm('You are Redirect to home page') == true) {
       this.auth.removeToken();
       this.route.navigate(['/home']);
+      this.auth.logoutUser() == true;
     }
   }
 

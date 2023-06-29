@@ -23,8 +23,16 @@ export class RegisterComponent implements OnInit {
     private auth: AuthService
   ) {}
 
+  canExit():boolean {
+    if(confirm("You are about to leave Register Page, Press Yes to Continue")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   ngOnInit() {
-    this.auth.loginAccess(false);
+    this.auth.removeToken();
   }
 
   registerReactiveForm = this.fb.group(

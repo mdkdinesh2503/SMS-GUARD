@@ -24,8 +24,6 @@ export class AdminExamComponent implements OnInit {
   examFeesFromStudent: any;
 
   ngOnInit() {
-    this.auth.canAccessAdmin();
-
     this.service.getAdminExamHallAllocation().subscribe((data) => {
       this.hallAllocationFromAdmin = data;
     });
@@ -162,5 +160,6 @@ export class AdminExamComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutAdmin() == true;
   }
 }

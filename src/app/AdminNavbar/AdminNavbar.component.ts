@@ -11,14 +11,13 @@ export class AdminNavbarComponent implements OnInit {
 
   constructor(private route:Router, private auth:AuthService) { }
 
-  ngOnInit() {
-    this.auth.canAccessAdmin();
-  }
+  ngOnInit() {}
 
   openPage() {
     if(confirm('You are Redirect to home page') == true) {
       this.auth.removeToken();
       this.route.navigate(['/home']);
+      this.auth.logoutAdmin() == true;
     }
   }
 

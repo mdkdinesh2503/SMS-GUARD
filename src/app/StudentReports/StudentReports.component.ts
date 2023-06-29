@@ -24,7 +24,6 @@ export class StudentReportsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.canAccessStudent();
 
     this.loginService.getStudentDetails().subscribe((data) => {
       this.detailsFromStudent = data;
@@ -121,6 +120,7 @@ export class StudentReportsComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 
 }

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { UserService } from '../user.service';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-StudentExamPayment',
@@ -16,8 +15,7 @@ export class StudentExamPaymentComponent implements OnInit {
     private route: Router,
     private userService: UserService,
     private acRoute: ActivatedRoute,
-    private service: LoginService,
-    private auth:AuthService
+    private service: LoginService
   ) {}
 
   detailsFromStudent: any;
@@ -33,8 +31,6 @@ export class StudentExamPaymentComponent implements OnInit {
   studentTotalAmount = '2600';
 
   ngOnInit() {
-
-    this.auth.canAccessStudent();
 
     this.acRoute.params.subscribe((params) => {
       this.studentRegisterNo = params['registerNumber'];

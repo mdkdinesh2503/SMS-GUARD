@@ -22,9 +22,6 @@ export class AdminRegisterListComponent implements OnInit {
   registerListFromStudent: any = '';
 
   ngOnInit() {
-
-    this.auth.canAccessAdmin();
-
     this.service.getRegisterDetails().subscribe((data) => {
       this.registerListFromStudent = data;
     });
@@ -59,12 +56,12 @@ export class AdminRegisterListComponent implements OnInit {
 
   onSearchTextEntered(searchValue:string) {
     this.searchText = searchValue;
-    // console.log(this.searchText);
   }
 
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutAdmin() == true;
   }
 
 }

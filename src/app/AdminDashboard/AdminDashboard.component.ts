@@ -24,8 +24,6 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    this.auth.canAccessAdmin();
-
     this.service.getStudentAttendance().subscribe((data) => {
       this.attendanceFromStudent = data;
     });
@@ -119,5 +117,6 @@ export class AdminDashboardComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutAdmin() == true;
   }
 }

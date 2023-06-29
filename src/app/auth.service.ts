@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private route: Router) {}
+  constructor() {}
 
   storeToken(token: string) {
     sessionStorage.setItem('USERNAME', token);
@@ -27,65 +27,6 @@ export class AuthService {
   removeToken() {
     sessionStorage.removeItem('USERNAME');
     sessionStorage.removeItem('ID');
-    this.storeAccessStudent(false);
-    this.storeAccessAdmin(false);
-  }
-
-  isAuthenticatedStudent(): boolean {
-    if (
-      sessionStorage.getItem('AllowStudent') != null &&
-      sessionStorage.getItem('AllowStudent') == 'true'
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  isAuthenticatedAdmin(): boolean {
-    if (
-      sessionStorage.getItem('AllowAdmin') != null &&
-      sessionStorage.getItem('AllowAdmin') == 'true'
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  canAccessAdmin() {
-    if (!this.isAuthenticatedAdmin()) {
-      this.route.navigate(['/login']);
-    }
-  }
-
-  canAccessStudent() {
-    if (!this.isAuthenticatedStudent()) {
-      this.route.navigate(['/login']);
-    }
-  }
-
-  storeAccessAdmin(value: any) {
-    sessionStorage.setItem('AllowAdmin', value);
-
-    if (this.isAuthenticatedAdmin()) {
-      this.route.navigate(['/admindashboard']);
-    }
-  }
-
-  storeAccessStudent(value: any) {
-    sessionStorage.setItem('AllowStudent', value);
-
-    if (this.isAuthenticatedStudent()) {
-      this.route.navigate(['/studentdashboard']);
-    }
-  }
-
-  loginAccess(value:any) {
-    sessionStorage.setItem('AllowStudent', value);
-    sessionStorage.setItem('AllowAdmin', value);
-    sessionStorage.removeItem('USERNAME');
-    sessionStorage.removeItem('ID');
   }
 
   popUpAccess() : boolean {
@@ -97,6 +38,41 @@ export class AuthService {
     } else {
       return false;
     }
+  }
+
+  isUserLoggedIn:boolean = true;
+  isAdminLoggedIn:boolean = true;
+  userName:any;
+  password:any;
+
+  userLogin(username:any, password:any) {
+    this.userName = username;
+    this.password = password;
+    this.isUserLoggedIn = false;
+    return of(this.isUserLoggedIn);
+  }
+
+  isUserLogin():boolean {
+    return this.isUserLoggedIn;
+  }
+
+  logoutUser():any {
+    this.isUserLoggedIn = true;
+  }
+
+  adminLogin(username:any, password:any) {
+    this.userName = username;
+    this.password = password;
+    this.isAdminLoggedIn = false;
+    return of(this.isAdminLoggedIn);
+  }
+
+  isAdminLogin():boolean {
+    return this.isAdminLoggedIn;
+  }
+
+  logoutAdmin():any {
+    this.isAdminLoggedIn = true;
   }
 
 }

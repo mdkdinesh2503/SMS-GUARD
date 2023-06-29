@@ -24,9 +24,6 @@ export class AdminReportsComponent implements OnInit {
     reportsFromStudent : any = '';
 
   ngOnInit() {
-
-    this.auth.canAccessAdmin();
-
     this.service.getStudentReports().subscribe((data) => {
       this.reportsFromStudent = data;
     });
@@ -73,6 +70,7 @@ export class AdminReportsComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutAdmin() == true;
   }
 
 }

@@ -22,8 +22,6 @@ export class StudentResultsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.auth.canAccessStudent();
-
     this.service.getAdminResult().subscribe((data) => {
       this.resultsFromAdmin = data;
     });
@@ -55,6 +53,7 @@ export class StudentResultsComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 
 }

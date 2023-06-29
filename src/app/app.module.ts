@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { OrderModule } from 'ngx-order-pipe';
+import { DeactivateGuard } from './deactivate.guard';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,6 +19,9 @@ import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CoursesComponent } from './courses/courses.component';
+import { PageErrorComponent } from './PageError/PageError.component';
+import { NotuploadedComponent } from './notuploaded/notuploaded.component';
+import { SearchComponent } from './Search/Search.component';
 
 import { AdminDashboardComponent } from './AdminDashboard/AdminDashboard.component';
 import { AdminNavbarComponent } from './AdminNavbar/AdminNavbar.component';
@@ -28,6 +32,12 @@ import { AdminFeesComponent } from './AdminFees/AdminFees.component';
 import { AdminReportsComponent } from './AdminReports/AdminReports.component';
 import { AdminResultsComponent } from './AdminResults/AdminResults.component';
 import { AdminTimetableComponent } from './AdminTimetable/AdminTimetable.component';
+import { AdminRegisterListComponent } from './AdminRegisterList/AdminRegisterList.component';
+import { AdminRegisterEditComponent } from './AdminRegisterEdit/AdminRegisterEdit.component';
+import { AdminDetailsViewComponent } from './adminDetailsView/adminDetailsView.component';
+import { AdminResultViewComponent } from './AdminResultView/AdminResultView.component';
+import { AdminReportViewComponent } from './AdminReportView/AdminReportView.component';
+
 import { StudentDashboardComponent } from './StudentDashboard/StudentDashboard.component';
 import { StudentNavbarComponent } from './StudentNavbar/StudentNavbar.component';
 import { StudentAttendanceComponent } from './StudentAttendance/StudentAttendance.component';
@@ -37,17 +47,9 @@ import { StudentFeesComponent } from './StudentFees/StudentFees.component';
 import { StudentReportsComponent } from './StudentReports/StudentReports.component';
 import { StudentResultsComponent } from './StudentResults/StudentResults.component';
 import { StudentTimetableComponent } from './StudentTimetable/StudentTimetable.component';
-import { AdminRegisterListComponent } from './AdminRegisterList/AdminRegisterList.component';
-import { PageErrorComponent } from './PageError/PageError.component';
-import { NotuploadedComponent } from './notuploaded/notuploaded.component';
 import { StudentResultViewComponent } from './StudentResultView/StudentResultView.component';
-import { AdminRegisterEditComponent } from './AdminRegisterEdit/AdminRegisterEdit.component';
-import { AdminDetailsViewComponent } from './adminDetailsView/adminDetailsView.component';
-import { AdminResultViewComponent } from './AdminResultView/AdminResultView.component';
-import { AdminReportViewComponent } from './AdminReportView/AdminReportView.component';
 import { StudentFeesPaymentComponent } from './StudentFeesPayment/StudentFeesPayment.component';
 import { StudentExamPaymentComponent } from './StudentExamPayment/StudentExamPayment.component';
-import { SearchComponent } from './Search/Search.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +103,7 @@ import { SearchComponent } from './Search/Search.component';
     ReactiveFormsModule,
     OrderModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, DeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

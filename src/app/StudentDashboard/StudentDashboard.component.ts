@@ -28,8 +28,6 @@ export class StudentDashboardComponent implements OnInit {
       this.attendanceFromStudent = data;
     });
 
-    this.auth.canAccessStudent();
-
   }
 
   hours: string = '';
@@ -120,6 +118,7 @@ export class StudentDashboardComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 
 }

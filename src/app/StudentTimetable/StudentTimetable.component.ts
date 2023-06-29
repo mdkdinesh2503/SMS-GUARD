@@ -22,8 +22,6 @@ export class StudentTimetableComponent implements OnInit {
 
   ngOnInit() {
 
-    this.auth.canAccessStudent();
-
     this.service.getAdminTimetable().subscribe((data) => {
       this.timetableFromAdmin = data;
     });
@@ -36,5 +34,6 @@ export class StudentTimetableComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 }

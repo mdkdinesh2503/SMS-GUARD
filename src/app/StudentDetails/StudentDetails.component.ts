@@ -1,4 +1,4 @@
-import { DatePipe, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
@@ -14,13 +14,10 @@ export class StudentDetailsComponent implements OnInit {
     private location: Location,
     private route: Router,
     private userService: UserService,
-    private datepipe: DatePipe,
     private auth: AuthService
   ) {}
 
-  ngOnInit() {
-    this.auth.canAccessStudent();
-  }
+  ngOnInit() {}
 
   goBack() {
     this.location.back();
@@ -166,6 +163,7 @@ export class StudentDetailsComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 
 }

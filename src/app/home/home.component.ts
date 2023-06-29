@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
-    this.auth.loginAccess(false);
+    this.auth.removeToken();
     this.checkNow();
   }
 

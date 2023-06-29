@@ -26,7 +26,7 @@ export class AboutComponent implements OnInit {
   setTimeOutClose: any;
 
   ngOnInit() {
-    this.auth.loginAccess(false);
+    this.auth.removeToken();
 
     // this.openPopupTimeout();
 

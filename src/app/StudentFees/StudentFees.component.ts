@@ -2,7 +2,6 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
-import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -14,7 +13,6 @@ export class StudentFeesComponent implements OnInit {
   constructor(
     private location: Location,
     private route: Router,
-    private userService: UserService,
     private service: LoginService,
     private auth:AuthService
   ) {}
@@ -24,8 +22,6 @@ export class StudentFeesComponent implements OnInit {
   arr: string[] = [];
 
   ngOnInit() {
-
-    this.auth.canAccessStudent();
 
     this.service.getStudentDetails().subscribe((data) => {
       this.detailsFromStudent = data;
@@ -79,6 +75,7 @@ export class StudentFeesComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 
 }

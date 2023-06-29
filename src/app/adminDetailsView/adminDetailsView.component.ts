@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { UpdateService } from '../Update.service';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-AdminDetailsView',
@@ -15,9 +14,7 @@ export class AdminDetailsViewComponent implements OnInit {
     private route: Router,
     private acRoute: ActivatedRoute,
     private service: LoginService,
-    private updateService: UpdateService,
-    private datepipe:DatePipe,
-    private auth:AuthService
+    private updateService: UpdateService
   ) {}
 
   values: any;
@@ -67,9 +64,6 @@ export class AdminDetailsViewComponent implements OnInit {
   mtwttls: any;
 
   ngOnInit() {
-
-    this.auth.canAccessAdmin();
-
     this.acRoute.params.subscribe((params) => {
       this.values = params['id'];
     });

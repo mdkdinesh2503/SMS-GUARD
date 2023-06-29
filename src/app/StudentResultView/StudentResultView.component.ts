@@ -2,7 +2,6 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login.service';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-StudentResultView',
@@ -13,8 +12,7 @@ export class StudentResultViewComponent implements OnInit {
   constructor(
     private location: Location,
     private acRoute: ActivatedRoute,
-    private service: LoginService,
-    private auth:AuthService
+    private service: LoginService
   ) {}
 
   regFromRes : any;
@@ -36,8 +34,6 @@ export class StudentResultViewComponent implements OnInit {
   bussinessHighspeed: any;
 
   ngOnInit() {
-
-    this.auth.canAccessStudent();
 
     this.acRoute.params.subscribe((params) => {
       this.regFromRes = params['register'];

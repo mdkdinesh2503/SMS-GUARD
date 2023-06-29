@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.loginAccess(false);
+    this.auth.removeToken();
 
     this.service.getAdminListDetails().subscribe((data) => {
       this.aminLoginList = data;
@@ -183,8 +183,9 @@ export class LoginComponent implements OnInit {
           this.auth.storeTokenId(this.idDisplay);
 
           this.auth.storeToken(un);
-          this.auth.storeAccessStudent(true);
-          this.auth.storeAccessAdmin(false);
+          this.auth.userLogin(un, ps).subscribe((data)=> {
+            this.route.navigate(['studentdashboard']);
+          });
         }
       });
     } else if (this.adminUserNamePresent) {
@@ -198,14 +199,13 @@ export class LoginComponent implements OnInit {
       this.userService.loginDetails(body).subscribe((data) => {
         if (confirm('You are Redirect to Admin page') == true) {
           this.auth.storeToken(un);
-          this.auth.storeAccessAdmin(true);
-          this.auth.storeAccessStudent(false);
+          this.auth.userLogin(un, ps).subscribe((data)=> {
+            this.route.navigate(['admindashboard']);
+          });
         }
       });
     } else {
       alert('Username or Password is Incorrect!');
-      this.auth.storeAccessAdmin(false);
-      this.auth.storeAccessStudent(false);
     }
   }
 

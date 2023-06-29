@@ -2,7 +2,6 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
-import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,7 +12,6 @@ import { AuthService } from '../auth.service';
 export class StudentExamComponent implements OnInit {
   constructor(
     private location: Location,
-    private userService: UserService,
     private service: LoginService,
     private auth: AuthService,
     private route: Router
@@ -26,7 +24,6 @@ export class StudentExamComponent implements OnInit {
   arr: string[] = [];
 
   ngOnInit() {
-    this.auth.canAccessStudent();
 
     this.service.getAdminExamHallAllocation().subscribe((data) => {
       this.hallAllocationFromAdmin = data;
@@ -122,5 +119,6 @@ export class StudentExamComponent implements OnInit {
   logOut() {
     this.auth.removeToken();
     this.route.navigate(['/login']);
+    this.auth.logoutUser() == true;
   }
 }
