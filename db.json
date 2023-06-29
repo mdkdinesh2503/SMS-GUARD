@@ -1511,34 +1511,6 @@
       "DATE": "03-04-2023",
       "TIME": "02:51 PM",
       "id": 2
-    },
-    {
-      "USERNAME": "rhenuka",
-      "PASSWORD": "Rhenuka@123",
-      "DATE": "15-05-2023",
-      "TIME": "02:47 PM",
-      "id": 3
-    },
-    {
-      "USERNAME": "rhenuka",
-      "PASSWORD": "Rhenuka@123",
-      "DATE": "15-05-2023",
-      "TIME": "02:55 PM",
-      "id": 3
-    },
-    {
-      "USERNAME": "kiran",
-      "PASSWORD": "Kiran@123",
-      "DATE": "29-06-2023",
-      "TIME": "03:07 PM",
-      "id": 4
-    },
-    {
-      "USERNAME": "admin",
-      "PASSWORD": "Admin@123",
-      "DATE": "29-06-2023",
-      "TIME": "03:08 PM",
-      "id": 5
     }
   ]
 }
