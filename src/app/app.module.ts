@@ -50,9 +50,10 @@ import { StudentTimetableComponent } from './StudentTimetable/StudentTimetable.c
 import { StudentResultViewComponent } from './StudentResultView/StudentResultView.component';
 import { StudentFeesPaymentComponent } from './StudentFeesPayment/StudentFeesPayment.component';
 import { StudentExamPaymentComponent } from './StudentExamPayment/StudentExamPayment.component';
+import { StudentProfileComponent } from './StudentProfile/StudentProfile.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       NavbarComponent,
       FooterComponent,
@@ -93,7 +94,8 @@ import { StudentExamPaymentComponent } from './StudentExamPayment/StudentExamPay
       AdminReportViewComponent,
       StudentFeesPaymentComponent,
       StudentExamPaymentComponent,
-      SearchComponent
+      SearchComponent,
+      StudentProfileComponent
    ],
   imports: [
     BrowserModule,

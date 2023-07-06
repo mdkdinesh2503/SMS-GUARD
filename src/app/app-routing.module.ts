@@ -40,6 +40,7 @@ import { StudentReportsComponent } from './StudentReports/StudentReports.compone
 import { StudentResultsComponent } from './StudentResults/StudentResults.component';
 import { StudentResultViewComponent } from './StudentResultView/StudentResultView.component';
 import { StudentTimetableComponent } from './StudentTimetable/StudentTimetable.component';
+import { StudentProfileComponent } from './StudentProfile/StudentProfile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/frontpage', pathMatch: 'full', title: ". . S M S . . C L O U D . ." },
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: 'studentreports', component: StudentReportsComponent, canActivate:[ActivateGuard], title: "S T U D E N T - R E P O R T S"},
   { path: 'studentresults', component: StudentResultsComponent, canActivate:[ActivateGuard], title: "S T U D E N T - R E S U L T S"},
   { path: 'studenttimetable', component: StudentTimetableComponent, canActivate:[ActivateGuard], title: "S T U D E N T - T I M E T A B L E"},
+  { path: 'studentprofile', component: StudentProfileComponent, canActivate:[ActivateGuard], title: "S T U D E N T - P R O F I L E"},
 
   { path: 'studentresultview/:register', component: StudentResultViewComponent, canActivate:[ActivateGuard], title: "S - - R E S U L T - V I E W"},
   { path: 'studentfeespayment/:id/:register', component: StudentFeesPaymentComponent, canActivate:[ActivateGuard], title: "S - - F E E S - P A Y M E N T"},

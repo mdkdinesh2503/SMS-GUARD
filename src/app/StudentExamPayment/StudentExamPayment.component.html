@@ -65,9 +65,39 @@
       </div>
       <div class="Section1">
 
-        <h1>Pay Using Credit or Debit Card</h1>
+        <h1 class="Payment-Heading">Payment Methods</h1>
 
-        <div class="Payment-container">
+        <div class="Payment-Methods" *ngIf="Container">
+
+          <div class="Payment-Method-container" (click)="activateCreditCard()">
+            <i class="far fa-credit-card"></i>
+            <p>Pay with Credit Card </p>
+          </div>
+
+          <br><br>
+
+          <div class="Payment-Method-container" (click)="activateDebitCard()">
+            <i class="fas fa-money-check"></i>
+            <p>Pay with Debit Card</p>
+          </div>
+
+          <br><br>
+
+          <div class="Payment-Method-container" (click)="activateUpi()">
+            <i class="fab fa-cc-amazon-pay"></i>
+            <p>Pay Using UPI</p>
+          </div>
+
+          <br><br>
+
+          <div class="Payment-Method-container" (click)="activateQrcode()">
+            <i class="fas fa-qrcode"></i>
+            <p>Scan with QR-Code</p>
+          </div>
+
+        </div>
+
+        <div class="Payment-container" *ngIf="Credit">
 
           <form (ngSubmit)="paymentExam(cardNumber.value, month.value ,cvv.value)">
 
@@ -98,6 +128,7 @@
             <div class="buttons">
 
               <button class="btn" type="submit">
+
                 Pay <i class="fas fa-caret-square-right"></i>
               </button>
 
@@ -105,6 +136,84 @@
 
           </form>
 
+        </div>
+
+        <div class="Payment-container" *ngIf="Debit">
+
+          <form (ngSubmit)="paymentExam(cardNumber.value, month.value ,cvv.value)">
+
+            <div class="fields">
+
+              <div class="input-field">
+                <label>All Cards Accepted</label>
+                <img src="../../assets/images/card_img.png" alt="">
+              </div>
+
+              <div class="input-field">
+                <label>Card Number</label>
+                <input maxlength="16" #cardNumber placeholder="XXXX-XXXX-XXXX-XXXX">
+              </div>
+
+              <div class="input-field">
+                <label>Expiry Month and Year</label>
+                <input type="month" #month>
+              </div>
+
+              <div class="input-field">
+                <label>CVV</label>
+                <input placeholder="XXX" #cvv type="tel" maxlength="3">
+              </div>
+
+            </div>
+
+            <div class="buttons">
+
+              <button class="btn" type="submit">
+
+                Pay <i class="fas fa-caret-square-right"></i>
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="Payment-container" *ngIf="Upi">
+
+          <form (ngSubmit)="paymentExamUpi(upiNumber.value)">
+
+            <div class="fields">
+
+              <div class="input-field">
+                <label>All UPI ID Accepted Here</label>
+                <img class="upiImage" src="../../assets/images/Upi_img.png">
+              </div>
+
+              <div class="input-field">
+                <label>UPI ID</label>
+                <input #upiNumber placeholder="Beneficiay UPI ID">
+              </div>
+
+            </div>
+
+            <div class="buttons">
+
+              <button class="btn" type="submit">
+
+                Pay <i class="fas fa-caret-square-right"></i>
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="Payment-container-qrcode" *ngIf="Qrcode">
+          <div class="imagediv-QRC">
+            <img class="QrcodeImage" src="../../assets/images/QrCode_img.png" alt="">
+          </div>
         </div>
 
       </div>

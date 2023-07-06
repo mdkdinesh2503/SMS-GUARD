@@ -1,0 +1,63 @@
+<div class="main-content">
+
+  <header>
+
+    <div class="menu-toggle">
+      <h1>CHANGE PASSWORD</h1>
+    </div>
+
+    <div class="icon">
+      <span (click)="goBack()" class="fas fa-arrow-left"></span>
+      <span (click)="goBack()"> Go Back</span>
+    </div>
+
+  </header>
+
+  <div class="main">
+
+    <br><br><br>
+
+    <div class="RegisterEdit-container">
+
+      <form (ngSubmit)="submitList(passwords.value, confirmpasswords.value)">
+
+        <div class="fields" >
+
+          <div class="input-field">
+            <label>USER NAME</label>
+            <input disabled value="{{userName}}">
+          </div>
+          <p></p>
+
+          <div class="input-field">
+            <label>EMAIL</label>
+            <input disabled value="{{email}}">
+          </div>
+
+          <div class="input-field">
+            <label>CHANGE PASSWORD</label>
+            <input #passwords value="{{password}}">
+          </div>
+
+          <div class="input-field">
+            <label>CONFIRM PASSWORD</label>
+            <input #confirmpasswords value="{{confirmPassword}}">
+          </div>
+
+        </div>
+
+        <div class="buttons">
+
+          <button class="btn" type="submit">
+            Change <i class="fas fa-caret-square-right"></i>
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

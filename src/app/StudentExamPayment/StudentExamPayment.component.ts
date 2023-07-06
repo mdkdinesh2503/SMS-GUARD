@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { UserService } from '../user.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-StudentExamPayment',
@@ -15,7 +16,8 @@ export class StudentExamPaymentComponent implements OnInit {
     private route: Router,
     private userService: UserService,
     private acRoute: ActivatedRoute,
-    private service: LoginService
+    private service: LoginService,
+    private auth:AuthService
   ) {}
 
   detailsFromStudent: any;
@@ -81,5 +83,62 @@ export class StudentExamPaymentComponent implements OnInit {
     } else {
       alert('Field is Not Empty!!');
     }
+  }
+
+  paymentExamUpi(upiNumber:any) {
+    var body = {
+      REGISTER_NUMBER: this.studentRegisterNo,
+      NAME: this.studentName,
+      FEES: 'Paided',
+      DEGREE: this.studentDegree,
+      DEPARTMENT: this.studentDepartment,
+      TOTAL_AMOUNT: this.studentTotalAmount,
+    };
+    if (upiNumber != '') {
+      this.userService.studentExamFeesPayment(body).subscribe((data) => {
+        alert('Fees Paided Successfully');
+        this.route.navigate(['/studentexam']);
+      });
+    } else {
+      alert('Field is Not Empty!!');
+    }
+  }
+
+  Container :boolean = true;
+  Credit:boolean = false;
+  Debit:boolean = false;
+  Upi:boolean = false;
+  Qrcode:boolean = false;
+
+  activateCreditCard() {
+    this.Credit = true;
+    this.Debit = false;
+    this.Upi = false;
+    this.Qrcode = false;
+    this.Container = false;
+  }
+
+  activateDebitCard() {
+    this.Credit = false;
+    this.Debit = true;
+    this.Upi = false;
+    this.Qrcode = false;
+    this.Container = false;
+  }
+
+  activateUpi() {
+    this.Credit = false;
+    this.Debit = false;
+    this.Upi = true;
+    this.Qrcode = false;
+    this.Container = false;
+  }
+
+  activateQrcode() {
+    this.Credit = false;
+    this.Debit = false;
+    this.Upi = false;
+    this.Qrcode = true;
+    this.Container = false;
   }
 }

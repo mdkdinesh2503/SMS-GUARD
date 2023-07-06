@@ -96,6 +96,31 @@ header {
   filter: drop-shadow(0 0 1px #000);
 }
 
+.Payment-container-qrcode .imagediv-QRC {
+  margin-top: .5rem;
+  height: 37rem;
+  text-align: center;
+  width: 100%;
+}
+.Payment-container-qrcode .QrcodeImage {
+  object-fit: contain;
+  height: 100%;
+  width: fit-content;
+  padding: 1rem;
+  border-top: 8px solid #4070f4;
+  border-left: 0.2rem solid #4070f4;
+  border-right: 0.2rem solid #4070f4;
+  border-bottom: 0.2rem solid #4070f4;
+}
+
+.Payment-container form .fields .input-field .upiImage {
+  height: 150px;
+  border: 0.1rem solid black;
+  width: 70%;
+  margin-top: 10px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
 .Payment-container {
   max-width: 600px;
   width: 100%;
@@ -104,9 +129,9 @@ header {
   margin: 3rem auto;
   background-color: #fff;
   border-top: 8px solid #4070f4;
-  border-left: .2rem solid #4070f4;
-  border-right: .2rem solid #4070f4;
-  border-bottom: .2rem solid #4070f4;
+  border-left: 0.2rem solid #4070f4;
+  border-right: 0.2rem solid #4070f4;
+  border-bottom: 0.2rem solid #4070f4;
 }
 
 .Payment-container form {
@@ -140,7 +165,7 @@ header {
   font-size: 1rem;
   font-weight: 400;
   border-radius: 5px;
-  border: .1rem solid #555;
+  border: 0.1rem solid #555;
   color: #000000;
   padding: 0 15px;
   height: 42px;
@@ -149,7 +174,56 @@ header {
 }
 
 .Payment-container .input-field input:focus {
-  box-shadow: .2rem .2rem 0 #d2dfff;
-  border: .1rem solid #4070f4;
+  box-shadow: 0.2rem 0.2rem 0 #d2dfff;
+  border: 0.1rem solid #4070f4;
   color: #000000;
+}
+
+.Payment-Heading {
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #4070f4;
+}
+
+.Payment-Methods {
+  margin-top: 2rem;
+  height: 32rem;
+  padding: 2rem;
+}
+
+.Payment-Method-container {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  border: 0.1rem solid #c7c1c1;
+  color: #4070f4;
+  font-family: Verdana;
+  letter-spacing: 0.2rem;
+  text-shadow: 0.1rem 0.1rem 0.1rem #a6bcfa;
+  font-weight: 900;
+  box-shadow: -0.2rem -0.1rem 0.6rem 0.3rem #a6bcfa;
+  word-spacing: 0.2rem;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Payment-Method-container:hover {
+  background-color: #4070f4;
+  color: #fff;
+}
+
+.Payment-Method-container:hover i {
+  background-color: #4070f4;
+  color: #fff;
+  border-right: 0.2rem solid #fff;
+}
+
+.Payment-Method-container i {
+  font-size: 2rem;
+  color: #4070f4;
+  border-right: 0.2rem solid #4070f4;
 }
