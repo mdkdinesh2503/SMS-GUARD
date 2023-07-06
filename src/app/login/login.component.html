@@ -31,7 +31,7 @@
           </div>
 
           <div class="div">
-            <input type="text" autocomplete="off" pattern="^[a-zA-Z]+$" name="username" placeholder="Username"
+            <input type="text" autocomplete="off" pattern="^(?!.*(.).*\1\1)[a-zA-Z]{3,20}$" name="username" placeholder="Username"
               class="input" #usernames formControlName="userNameValue" />
           </div>
 
@@ -41,8 +41,8 @@
           *ngIf="LoginReactiveForm.controls['userNameValue'].invalid && LoginReactiveForm.controls['userNameValue'].dirty">
           <p class="error" *ngIf="LoginReactiveForm.controls['userNameValue'].errors?.['required']"><i
               class="fas fa-exclamation-circle"></i>&numsp; Enter Username to Continue..</p>
-          <p class="error" *ngIf="LoginReactiveForm.controls['userNameValue'].errors?.['pattern']"><i
-              class="fas fa-exclamation-circle"></i>&numsp; Username only contains Alphabets</p>
+          <p class="error" *ngIf="LoginReactiveForm.controls['userNameValue'].errors?.['pattern']" title="Username only contains Alphabets, min 3 digits, 2 consecutive characters only allowed"><i
+              class="fas fa-exclamation-circle"></i>&numsp; Follow Username Constraints</p>
         </div>
         <div class="information-error"
           *ngIf="LoginReactiveForm.controls['userNameValue'].valid && LoginReactiveForm.controls['userNameValue'].dirty">
@@ -66,8 +66,7 @@
           *ngIf="LoginReactiveForm.controls['passwordValue'].invalid&& LoginReactiveForm.controls['passwordValue'].dirty">
           <p class="error" *ngIf="LoginReactiveForm.controls['passwordValue'].errors?.['required']"><i
               class="fas fa-exclamation-circle"></i>&numsp; Enter Password to Continue..</p>
-          <p class="error" *ngIf="LoginReactiveForm.controls['passwordValue'].errors?.['pattern']"><i
-              title="password have min 7 digits, uppercase, lowercase, number and special character"
+          <p class="error" *ngIf="LoginReactiveForm.controls['passwordValue'].errors?.['pattern']" title="password have min 7 digits, uppercase, lowercase, number and special character"><i
               class="fas fa-exclamation-circle"></i>&numsp; Follow password Constraints</p>
         </div>
         <div class="information-error1"
