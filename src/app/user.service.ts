@@ -80,6 +80,12 @@ export class UserService {
 
   }
 
+  deleteStudentReview(body:any) {
+
+    return this.client.delete("http://localhost:3000/StudentReview"+"/"+body);
+
+  }
+
   adminExamHallAllocation(body:any){
 
     return this.client.post("http://localhost:3000/AdminExamHallAllocation",body);
@@ -107,6 +113,12 @@ export class UserService {
   studentCollegeFeesPayment(body:any){
 
     return this.client.post("http://localhost:3000/StudentCollegeFeesPayment",body);
+
+  }
+
+  addStudentReview(body:any) {
+
+    return this.client.post("http://localhost:3000/StudentReview",body);
 
   }
 

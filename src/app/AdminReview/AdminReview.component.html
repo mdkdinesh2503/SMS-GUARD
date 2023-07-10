@@ -1,0 +1,88 @@
+<app-AdminNavbar></app-AdminNavbar>
+
+<div class="main-content">
+
+  <header>
+
+    <div class="menu-toggle">
+      <h1>Review</h1>
+    </div>
+
+    <div class="icon">
+      <a title="logout" (click)="logOut()"><span class="dismiss">Logout</span><span
+          class="fas fa-file-export"></span></a>
+    </div>
+
+  </header>
+
+  <div class="main">
+
+    <div class="page-header">
+
+      <div>
+        <h1>Hi, There...</h1>
+      </div>
+
+      <div class="header-actions">
+
+        <a class="emoji1" routerLink="/adminregisters">
+          <span class="fas fa-edit"></span>
+          Enquiry
+        </a>
+
+        <a class="emoji2" (click)="goBack()">
+          <span class="fas fa-arrow-left"></span>
+          Go Back
+        </a>
+
+      </div>
+
+    </div>
+
+    <app-Search (searchTextChanged)="onSearchTextEntered($event)"></app-Search>
+
+    <section class="register">
+
+      <div class="register-list">
+
+        <h1>Review List</h1>
+
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th title="Sort By ID" (click)="sort('id')">ID <span class="fas fa-sort-numeric-down"></span></th>
+              <th title="Sort By NAME" (click)="sort('NAME')">Name <span class="fas fa-sort-alpha-down"></span></th>
+              <th>Department</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th title="Sort By RATING" (click)="sort('RATING')">Rating <span class="fas fa-sort-numeric-down"></span></th>
+              <th>Delete</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+
+          <tbody *ngFor="let review of reviewFromStudent | orderBy: orderHeader: isDescOrder">
+
+            <tr class="active" *ngIf="searchText === '' || review.NAME.toLowerCase().includes(searchText) || review.RATING.toLowerCase().includes(searchText) || review.DEPARTMENT.toLowerCase().includes(searchText) || review.DATE.toLowerCase().includes(searchText) || review.TIME.toLowerCase().includes(searchText)">
+              <td>{{review.id}}</td>
+              <td>{{review.NAME}}</td>
+              <td>{{review.DEPARTMENT}}</td>
+              <td>{{review.DATE}}</td>
+              <td>{{review.TIME}}</td>
+              <td>{{review.RATING}}</td>
+              <td><button class="delete" (click)="deleteData(review.id)"><i class="fas fa-trash-alt"></i></button></td>
+              <td><button class="view" (click)="viewStudentReview(review.REGISTER_NUMBER)">View</button></td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>

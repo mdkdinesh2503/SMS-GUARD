@@ -18,13 +18,13 @@
 
     <h1>Register Form</h1>
 
-    <form [formGroup]="registerReactiveForm" (ngSubmit)="submitList()">
+    <form [formGroup]="registerReactiveForm" (ngSubmit)="submitList(username.value, emails.value)">
 
       <div class="fields">
 
         <div class="input-field">
           <label>Username</label>
-          <input name="username" autocomplete="off" type="text" pattern="^(?!.*(.).*\1\1)[a-zA-Z]{3,20}$" placeholder="Enter your name" formControlName="USERNAME">
+          <input name="username" autocomplete="off" type="text" #username pattern="^(?!.*(.).*\1\1)[a-zA-Z]{3,20}$" placeholder="Enter your name" formControlName="USERNAME">
           <p class="empty">&numsp;<br></p>
           <div class="information-error"
             *ngIf="registerReactiveForm.controls['USERNAME'].invalid && registerReactiveForm.controls['USERNAME'].dirty">
@@ -42,7 +42,7 @@
 
         <div class="input-field">
           <label>Email</label>
-          <input name="email" autocomplete="off" type="email"
+          <input name="email" #emails autocomplete="off" type="email"
             pattern="^[0-9a-zA-Z]+[._]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$"
             placeholder="Enter your email" formControlName="EMAIL">
           <p class="empty">&numsp;<br></p>

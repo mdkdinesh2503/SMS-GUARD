@@ -16,6 +16,8 @@ import { AdminReportViewComponent } from './AdminReportView/AdminReportView.comp
 import { AdminResultsComponent } from './AdminResults/AdminResults.component';
 import { AdminResultViewComponent } from './AdminResultView/AdminResultView.component';
 import { AdminTimetableComponent } from './AdminTimetable/AdminTimetable.component';
+import { AdminReviewComponent } from './AdminReview/AdminReview.component';
+import { AdminReviewViewComponent } from './AdminReviewView/AdminReviewView.component';
 
 import { FrontpageComponent } from './frontpage/frontpage.component';
 import { AboutComponent } from './about/about.component';
@@ -41,6 +43,7 @@ import { StudentResultsComponent } from './StudentResults/StudentResults.compone
 import { StudentResultViewComponent } from './StudentResultView/StudentResultView.component';
 import { StudentTimetableComponent } from './StudentTimetable/StudentTimetable.component';
 import { StudentProfileComponent } from './StudentProfile/StudentProfile.component';
+import { StudentReviewComponent } from './StudentReview/StudentReview.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/frontpage', pathMatch: 'full', title: ". . S M S . . C L O U D . ." },
@@ -63,6 +66,12 @@ const routes: Routes = [
   { path: 'adminreports', component: AdminReportsComponent, canActivate:[ActivateGuard], title: "A D M I N - R E P O R T S"},
   { path: 'adminresults', component: AdminResultsComponent, canActivate:[ActivateGuard], title: "A D M I N - R E S U L T S"},
   { path: 'admintimetable', component: AdminTimetableComponent, canActivate:[ActivateGuard], title: "A D M I N - T I M E T A B L E"},
+  { path: 'adminreview', component: AdminReviewComponent, canActivate:[ActivateGuard], title: "A D M I N - R E V I E W"},
+  { path: 'adminresultview/:id/:register', component: AdminResultViewComponent, canActivate:[ActivateGuard], title: "A - - R E S U L T - V I E W"},
+  { path: 'admindetailsview/:id/:register', component: AdminDetailsViewComponent, canActivate:[ActivateGuard], title: "A - - D E T A I L S - V I E W"},
+  { path: 'adminreportview/:id', component: AdminReportViewComponent, canActivate:[ActivateGuard], title: "A - - R E P O R T S - V I E W"},
+  { path: 'adminregisteredit/:id/:name', component: AdminRegisterEditComponent, canActivate:[ActivateGuard], title: "A - - R E G I S T E R - V I E W"},
+  { path: 'adminreviewopen/:id', component: AdminReviewViewComponent, canActivate:[ActivateGuard], title: "A - - R E V I E W - V I E W"},
 
   { path: 'studentdashboard', component: StudentDashboardComponent, canActivate:[ActivateGuard], title: "S T U D E N T - D A S H B O A R D"},
   { path: 'studentdetails', component: StudentDetailsComponent, canActivate:[ActivateGuard], title: "S T U D E N T - D E T A I L S"},
@@ -73,14 +82,10 @@ const routes: Routes = [
   { path: 'studentresults', component: StudentResultsComponent, canActivate:[ActivateGuard], title: "S T U D E N T - R E S U L T S"},
   { path: 'studenttimetable', component: StudentTimetableComponent, canActivate:[ActivateGuard], title: "S T U D E N T - T I M E T A B L E"},
   { path: 'studentprofile', component: StudentProfileComponent, canActivate:[ActivateGuard], title: "S T U D E N T - P R O F I L E"},
-
+  { path: 'studentreview', component: StudentReviewComponent, canActivate:[ActivateGuard], title: "S T U D E N T - R E V I E W"},
   { path: 'studentresultview/:register', component: StudentResultViewComponent, canActivate:[ActivateGuard], title: "S - - R E S U L T - V I E W"},
   { path: 'studentfeespayment/:id/:register', component: StudentFeesPaymentComponent, canActivate:[ActivateGuard], title: "S - - F E E S - P A Y M E N T"},
   { path: 'studentexampayment/:registerNumber', component: StudentExamPaymentComponent, canActivate:[ActivateGuard], title: "S - - E X A M - P A Y M E N T"},
-  { path: 'adminresultview/:id/:register', component: AdminResultViewComponent, canActivate:[ActivateGuard], title: "A - - R E S U L T - V I E W"},
-  { path: 'admindetailsview/:id/:register', component: AdminDetailsViewComponent, canActivate:[ActivateGuard], title: "A - - D E T A I L S - V I E W"},
-  { path: 'adminreportview/:id', component: AdminReportViewComponent, canActivate:[ActivateGuard], title: "A - - R E P O R T S - V I E W"},
-  { path: 'adminregisteredit/:id/:name', component: AdminRegisterEditComponent, canActivate:[ActivateGuard], title: "A - - R E G I S T E R - V I E W"},
 
   { path: 'notupload', component: NotuploadedComponent, title: "N O T - Y E T - U P L O A D"},
   { path: '**', component: PageErrorComponent, title: "P A G E - N O T - F O U N D"},

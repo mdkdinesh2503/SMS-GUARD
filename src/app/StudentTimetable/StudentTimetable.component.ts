@@ -21,7 +21,6 @@ export class StudentTimetableComponent implements OnInit {
   loginUserName: any = this.auth.displayToken();
 
   ngOnInit() {
-
     this.service.getAdminTimetable().subscribe((data) => {
       this.timetableFromAdmin = data;
     });

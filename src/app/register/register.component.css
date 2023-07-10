@@ -166,6 +166,7 @@ header .logo span {
   font-weight: 400;
   border-radius: 5px;
   border: 0.1rem solid #4070f4;
+  box-shadow: 0.2rem 0.2rem 0 #d2dfff;
   color: #777777;
   padding: 0 10px;
   height: 42px;
@@ -180,7 +181,6 @@ header .logo span {
 }
 
 .Register-container .input-field input:focus {
-  box-shadow: 0.2rem 0.2rem 0 #d2dfff;
   color: #000;
 }
 
@@ -204,12 +204,10 @@ header .logo span {
 
 input.ng-invalid {
   border: 0.2rem solid red;
-  box-shadow: 0.2rem 0.2rem 0 #ffb0af;
 }
 
 input.ng-valid {
   border: 0.2rem solid green;
-  box-shadow: 0.2rem 0.2rem 0 #84fb84;
 }
 
 .error {

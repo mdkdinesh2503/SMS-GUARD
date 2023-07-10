@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { OrderModule } from 'ngx-order-pipe';
-import { DeactivateGuard } from './deactivate.guard';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -20,8 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CoursesComponent } from './courses/courses.component';
 import { PageErrorComponent } from './PageError/PageError.component';
-import { NotuploadedComponent } from './notuploaded/notuploaded.component';
 import { SearchComponent } from './Search/Search.component';
+import { NotuploadedComponent } from './notuploaded/notuploaded.component';
 
 import { AdminDashboardComponent } from './AdminDashboard/AdminDashboard.component';
 import { AdminNavbarComponent } from './AdminNavbar/AdminNavbar.component';
@@ -37,6 +36,8 @@ import { AdminRegisterEditComponent } from './AdminRegisterEdit/AdminRegisterEdi
 import { AdminDetailsViewComponent } from './adminDetailsView/adminDetailsView.component';
 import { AdminResultViewComponent } from './AdminResultView/AdminResultView.component';
 import { AdminReportViewComponent } from './AdminReportView/AdminReportView.component';
+import { AdminReviewComponent } from './AdminReview/AdminReview.component';
+import { AdminReviewViewComponent } from './AdminReviewView/AdminReviewView.component';
 
 import { StudentDashboardComponent } from './StudentDashboard/StudentDashboard.component';
 import { StudentNavbarComponent } from './StudentNavbar/StudentNavbar.component';
@@ -47,13 +48,14 @@ import { StudentFeesComponent } from './StudentFees/StudentFees.component';
 import { StudentReportsComponent } from './StudentReports/StudentReports.component';
 import { StudentResultsComponent } from './StudentResults/StudentResults.component';
 import { StudentTimetableComponent } from './StudentTimetable/StudentTimetable.component';
+import { StudentProfileComponent } from './StudentProfile/StudentProfile.component';
 import { StudentResultViewComponent } from './StudentResultView/StudentResultView.component';
 import { StudentFeesPaymentComponent } from './StudentFeesPayment/StudentFeesPayment.component';
 import { StudentExamPaymentComponent } from './StudentExamPayment/StudentExamPayment.component';
-import { StudentProfileComponent } from './StudentProfile/StudentProfile.component';
+import { StudentReviewComponent } from './StudentReview/StudentReview.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       NavbarComponent,
       FooterComponent,
@@ -95,7 +97,10 @@ import { StudentProfileComponent } from './StudentProfile/StudentProfile.compone
       StudentFeesPaymentComponent,
       StudentExamPaymentComponent,
       SearchComponent,
-      StudentProfileComponent
+      StudentProfileComponent,
+      StudentReviewComponent,
+      AdminReviewComponent,
+      AdminReviewViewComponent
    ],
   imports: [
     BrowserModule,
@@ -105,7 +110,7 @@ import { StudentProfileComponent } from './StudentProfile/StudentProfile.compone
     ReactiveFormsModule,
     OrderModule
   ],
-  providers: [DatePipe, DeactivateGuard],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

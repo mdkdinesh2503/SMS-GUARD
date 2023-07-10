@@ -1,0 +1,124 @@
+header {
+  height: 70px;
+  display: flex;
+  width: 88%;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #efefef;
+  border: 1px solid #4070f4;
+  box-shadow: .2rem .2rem 0 #d8e0f7;
+  padding: 1rem 8rem;
+  z-index: 5000;
+}
+
+.main-content {
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-content header .menu-toggle h1 {
+  font-size: 2.2rem;
+  color: #4070f4;
+}
+
+.main-content header .icon span {
+  padding: 0px;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: #4070f4;
+}
+
+.main {
+  min-height: 100vh;
+  height: 120vh;
+  background: #a6bcfa;
+}
+
+.ResultView-container {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 25px;
+  margin: 7rem auto;
+  background-color: #fff;
+  border-top: 8px solid #4070f4;
+  border-left: .2rem solid #4070f4;
+  border-right: .2rem solid #4070f4;
+  border-bottom: .2rem solid #4070f4;
+}
+
+.ResultView-container h1 {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #03262c;
+}
+
+.ResultView-container h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  width: 160px;
+  border-radius: 8px;
+  background-color: #4070f4;
+}
+
+.ResultView-container form {
+  margin-top: 16px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.ResultView-container form .fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.ResultView-container form .fields .input-field {
+  display: flex;
+  width: calc(100% - 15px);
+  flex-direction: column;
+  margin: 4px 0;
+}
+
+.ResultView-container .input-field label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #4070f4;
+}
+
+.ResultView-container .input-field input,
+.ResultView-container .input-field select {
+  outline: none;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 5px;
+  border: .1rem solid #555;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
+  width: calc(100%-10%);
+}
+
+.ResultView-container .input-field input:focus,
+.ResultView-container .input-field select:focus {
+  box-shadow: .2rem .2rem 0 #d2dfff;
+  border: .2rem solid #4070f4;
+  color: #000000;
+}
+
+.ResultView-container .input-field input,
+.ResultView-container .input-field select {
+  color: #555;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: #03262c;
+  text-decoration: underline;
+}

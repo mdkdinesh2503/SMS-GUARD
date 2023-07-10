@@ -24,7 +24,6 @@ export class AdminTimetableComponent implements OnInit {
   timetableFromAdmin: any = '';
 
   ngOnInit() {
-
     this.service.getAdminTimetable().subscribe((data) => {
       this.timetableFromAdmin = data;
     });

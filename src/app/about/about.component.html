@@ -98,98 +98,30 @@
 
   <div class="container">
 
-    <div class="box">
+    <div class="box" *ngFor="let review of reviewFromDatabase">
 
       <i class="fas fa-quote-left quote"></i>
 
-      <p>The college is very good and the faculty is also good they help you in studying. They provide you excellent
-        coaching. My advice to aspirants is choose your future this is in your hand good luck.</p>
+      <p>{{review.MESSAGE}}</p>
 
       <div class="content">
 
         <div class="info">
 
-          <div class="name">Dinesh Kumar</div>
+          <div class="name">{{review.NAME}}</div>
 
-          <div class="job">B.E. | CSE</div>
+          <div class="job">{{review.DEPARTMENT}}</div>
+
+          <p hidden *ngFor="let star of generateStarSymbols(review.RATING)"></p>
 
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star" *ngFor="let star of stars"></i>
+            <i class="far fa-star" *ngFor="let star of nonStars"></i>
           </div>
 
         </div>
 
         <div class="image first">
-          <img src="../../assets/images/review-img.png" alt="">
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="box">
-
-      <i class="fas fa-quote-left quote"></i>
-
-      <p>Our college has good environment with better teaching staff. All the lecturers are experienced. Our college
-        conduct different programs like dancing, singing, quiz competitions, games.</p>
-
-      <div class="content">
-
-        <div class="info">
-
-          <div class="name">Kiran</div>
-
-          <div class="job">B.E. | EEE</div>
-
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-
-        </div>
-
-        <div class="image">
-          <img src="../../assets/images/review-img.png" alt="">
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="box">
-
-      <i class="fas fa-quote-left  quote"></i>
-
-      <p>Hi I am Ganesh, today I am going to give you a review about a Cloud college.All lecturers are
-        experienced. Our college conduct different programs like dancing, singing, quiz and games.</p>
-
-      <div class="content">
-
-        <div class="info">
-
-          <div class="name">Ganesh</div>
-
-          <div class="job">B.E. | IT</div>
-
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-
-        </div>
-
-        <div class="image">
           <img src="../../assets/images/review-img.png" alt="">
         </div>
 

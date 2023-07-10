@@ -21,7 +21,6 @@ export class StudentResultsComponent implements OnInit {
   resultsFromAdmin: any = '';
 
   ngOnInit() {
-
     this.service.getAdminResult().subscribe((data) => {
       this.resultsFromAdmin = data;
     });

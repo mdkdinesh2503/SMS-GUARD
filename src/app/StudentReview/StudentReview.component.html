@@ -1,0 +1,118 @@
+<app-StudentNavbar></app-StudentNavbar>
+
+<!-- Student Review section starts here  -->
+
+<div class="main-content">
+
+  <header>
+
+    <div class="menu-toggle">
+      <h1>Review</h1>
+    </div>
+
+    <div class="icon">
+      <a title="logout" (click)="logOut()"><span class="dismiss">Logout</span><span
+          class="fas fa-file-export"></span></a>
+    </div>
+
+  </header>
+
+  <div class="main">
+
+    <div class="page-header">
+
+      <div>
+        <h1><span class="UserDesign">Review us..</span></h1>
+      </div>
+
+      <div class="header-actions">
+
+        <a class="emoji2" (click)="goBack()">
+          <span class="fas fa-arrow-left"></span>
+          Go Back
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="report-container">
+
+      <h1>Review Form</h1>
+
+      <form #AdminReportForm="ngForm" (ngSubmit)="submitList(field.value, reviewfield.value, msg.value)">
+
+        <div class="fields">
+
+          <div class="input-field">
+            <label>Register Number</label>
+            <input name="reportRegister" disabled type="tel" maxlength="7" placeholder="Enter Register Number" required #Rgnu="ngModel" [(ngModel)]="studentRegisterNo">
+          </div>
+
+          <div class="input-field">
+            <label>Full Name</label>
+            <input name="reportname" disabled type="text" placeholder="Enter your name" required #Name="ngModel" [(ngModel)]="studentName">
+          </div>
+
+          <div class="input-field">
+            <label>Degree and Department</label>
+            <select name="reportfield" required #field="ngModel" ngModel>
+              <option hidden selected>Select anyone..</option>
+              <option>B.E. | CSE</option>
+              <option>B.E. | EEE</option>
+              <option>B.E. | ECE</option>
+              <option>B.E. | IT</option>
+              <option>B.E. | AE</option>
+              <option>B.E. | CE</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Rate Us</label>
+            <select name="reportreview" required #reviewfield="ngModel" ngModel>
+              <option hidden selected>Select anyone..</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Date</label>
+            <input name="reportDate" type="text" disabled required #date="ngModel" [(ngModel)]="dates">
+          </div>
+
+          <div class="input-field">
+            <label>Time</label>
+            <input name="reporttime" type="text" disabled required #time="ngModel" [(ngModel)]="times">
+          </div>
+
+          <div class="input-field">
+            <label>Message here</label>
+            <textarea name="msg" type="text" rows="10" required #msg="ngModel" ngModel>
+                      </textarea>
+          </div>
+
+        </div>
+
+        <div class="buttons">
+
+          <button type="submit" class="btn">
+            Submit <i class="fas fa-caret-square-right"></i>
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <br>
+
+  </div>
+
+</div>
+
+<!-- Student Report section ends here  -->

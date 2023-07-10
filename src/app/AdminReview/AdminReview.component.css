@@ -1,0 +1,205 @@
+/*-------------------------------------------------------------
+----------- Admin Review Section starts here --------------
+---------------------------------------------------------------  */
+
+header {
+  height: 75px;
+  margin-top: -3.9rem;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  align-items: center;
+  background-color: #efefef;
+  border: 1px solid #4070f4;
+  box-shadow: .5rem .5rem 0 #a6bcfa;
+  padding: 1rem 8rem;
+  z-index: 5000;
+}
+
+.main-content {
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-content header .menu-toggle h1 {
+  color: #4070f4;
+  font-size: 2.6rem;
+}
+
+.main-content header .icon {
+  transform: translateX(660%);
+  cursor: pointer;
+}
+
+.main-content header .icon span {
+  padding: 8px;
+  position: relative;
+  font-size: 2.3rem;
+  color: #4070f4;
+}
+
+.main-content header .icon a {
+  text-decoration: none;
+}
+
+.main {
+  padding: 1.5rem;
+  background: #a6bcfa;
+  min-height: 89.3vh;
+}
+
+.page-header {
+  margin-top: 2rem;
+  display: flex;
+  padding: 1.2rem;
+  justify-content: space-between;
+  border-bottom: .3rem solid #4070f4;
+}
+
+.page-header div h1 {
+  font-size: 2.2rem;
+  color: #4070f4;
+  background-color: #fff;
+  padding: 10px;
+  border: .2rem solid #4070f4;
+}
+
+.header-actions a {
+  outline: none;
+  text-decoration: none;
+  color: #fff;
+  background: #4070f4;
+  border: .1rem solid #4070f4;
+  padding: 0.6rem 1rem;
+  margin: .5rem;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.header-actions a:hover {
+  background: #fff;
+  color: #4070f4;
+  border: .1rem solid #4070f4;
+  box-shadow: .2rem .2rem 0 #d2dfff;
+}
+
+.buttons {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn {
+  color: #fff;
+  background: #4070f4;
+  box-shadow: .2rem .2rem 0 #d2dfff;
+  font-size: 1.8rem;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+  margin: 2rem;
+  justify-content: space-between;
+  border: .1rem solid #000000;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #4070f4;
+  border: .1rem solid #4070f4;
+}
+
+.register {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.register-list {
+  width: 95%;
+  padding: 10px;
+  margin: 10px auto ;
+  background: #fff;
+  border-radius: 10px;
+  border: .1rem solid #4070f4;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+table thead tr {
+  color: #fff;
+  font-size: 1.2rem;
+  background: #4070f4;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+}
+
+.table th {
+  cursor: pointer;
+}
+
+.table td {
+  font-size: 1rem;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #fff;
+}
+
+.table tbody tr:nth-of-type(odd) {
+  background: #fff;
+}
+
+.table tbody tr.active {
+  font-weight: bold;
+  color: #4070f4;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid #4070f4;
+}
+
+.table .delete {
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  color: red;
+  border: 1px solid red;
+  font-size: 1rem;
+}
+
+.table .delete:hover {
+  background: red;
+  color: #fff;
+  transition: 0.5rem;
+}
+
+.table .view {
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  color: green;
+  border: 1px solid green;
+  font-size: 1rem;
+}
+
+.table .view:hover {
+  background: green;
+  color: #fff;
+  transition: 0.5rem;
+}
+
+/*  Admin Review section ends here */

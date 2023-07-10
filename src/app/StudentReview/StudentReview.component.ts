@@ -1,47 +1,33 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { DatePipe } from '@angular/common';
-import { AuthService } from '../auth.service';
+import { DatePipe, Location } from '@angular/common';
 import { LoginService } from '../login.service';
 
 @Component({
-  selector: 'app-StudentReports',
-  templateUrl: './StudentReports.component.html',
-  styleUrls: ['./StudentReports.component.css'],
+  selector: 'app-StudentReview',
+  templateUrl: './StudentReview.component.html',
+  styleUrls: ['./StudentReview.component.css'],
 })
-export class StudentReportsComponent implements OnInit {
+export class StudentReviewComponent implements OnInit {
   constructor(
-    private location: Location,
     private auth: AuthService,
-    private route:Router,
+    private location: Location,
+    private route: Router,
     private loginService: LoginService,
-    private userService: UserService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private userService: UserService
   ) {
     this.setNow();
   }
-
-  ngOnInit() {
-    this.loginService.getStudentDetails().subscribe((data) => {
-      this.detailsFromStudent = data;
-      this.studentRegisterNo = this.detailsFromStudent[this.getIdVal].REGISTER_NUMBER;
-      this.studentName = this.detailsFromStudent[this.getIdVal].NAME;
-    });
-  }
-
-  detailsFromStudent:any;
-  studentRegisterNo:any ;
-  studentName:any;
-  getIdVal:any = this.auth.displayIdToken();
-
-  dates:any = this.datePipe.transform(new Date(), 'dd-MM-yyyy');
 
   times: string = '';
   hours: string = '';
   minutes: string = '';
   seconds: string = '';
+
+  dates:any = this.datePipe.transform(new Date(), 'dd-MM-yyyy');
 
   setNow() {
     setInterval(() => {
@@ -93,22 +79,38 @@ export class StudentReportsComponent implements OnInit {
     this.location.back();
   }
 
+  detailsFromStudent:any;
+  studentRegisterNo:any ;
+  studentName:any;
+  getIdVal:any = this.auth.displayIdToken();
+
+  ngOnInit() {
+    this.loginService.getStudentDetails().subscribe((data) => {
+      this.detailsFromStudent = data;
+      this.studentRegisterNo = this.detailsFromStudent[this.getIdVal].REGISTER_NUMBER;
+      this.studentName = this.detailsFromStudent[this.getIdVal].NAME;
+    });
+  }
+
   submitList(
     field: any,
+    reviewfield :any,
     message: any
   ) {
+
     var body = {
       REGISTER_NUMBER: this.studentRegisterNo,
       NAME: this.studentName,
-      FIELD: field,
+      RATING : reviewfield,
+      DEPARTMENT: field,
       DATE: this.dates,
       TIME: this.times,
       MESSAGE: message,
     };
 
-    if(field != "" &&  message != "") {
-      this.userService.studentReports(body).subscribe((data) => {
-        alert('Student Reports send successfully');
+    if(field != "" &&  message != "" && reviewfield != "") {
+      this.userService.addStudentReview(body).subscribe((data) => {
+        alert('Student Review marked successfully');
         window.location.reload();
       });
     }else{

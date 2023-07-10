@@ -120,7 +120,7 @@ section {
 .review .container {
   padding: 0 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
 

@@ -1,0 +1,76 @@
+<!-- Admin Result view section starts here  -->
+
+<div class="main-content">
+
+  <header>
+
+      <div class="menu-toggle">
+          <h1>Review View</h1>
+      </div>
+
+      <div class="icon">
+          <span (click)="goBack()" class="fas fa-arrow-left"></span>
+          <span (click)="goBack()">  Go Back</span>
+      </div>
+
+  </header>
+
+  <div class="main">
+
+    <br><br><br>
+
+      <div class="ResultView-container">
+
+          <h1> Result Details</h1>
+
+          <form>
+
+            <div class="fields">
+
+              <div class="input-field">
+                <label>Register Number</label>
+                <input name="reportRegister" disabled type="tel" #Rgnu="ngModel" [(ngModel)]="studentRegisterNo">
+              </div>
+
+              <div class="input-field">
+                <label>Full Name</label>
+                <input name="reportname" disabled type="text" #Name="ngModel" [(ngModel)]="studentName">
+              </div>
+
+              <div class="input-field">
+                <label>Degree and Department</label>
+                <input name="reportfield" type="text" disabled #field="ngModel" [(ngModel)]="studentDepartment">
+              </div>
+
+              <div class="input-field">
+                <label>Rate Us</label>
+                <input name="reportreview" type="text" disabled #reviewfield="ngModel" [(ngModel)]="studentRating">
+              </div>
+
+              <div class="input-field">
+                <label>Date</label>
+                <input name="reportDate" type="text" disabled #date="ngModel" [(ngModel)]="dates">
+              </div>
+
+              <div class="input-field">
+                <label>Time</label>
+                <input name="reporttime" type="text" disabled #time="ngModel" [(ngModel)]="times">
+              </div>
+
+              <div class="input-field">
+                <label>Message here</label>
+                <textarea name="msg" type="text" rows="10" disabled #msg="ngModel" [(ngModel)]="message">
+                          </textarea>
+              </div>
+
+            </div>
+
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
+
+<!-- Admin Result view section ends here  -->

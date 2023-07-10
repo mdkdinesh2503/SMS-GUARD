@@ -20,6 +20,7 @@ export class LoginService {
   studentExamFeesPaymentUrl :any="http://localhost:3000/StudentExamFeesPayment";
   studentCollegeFeesPaymentUrl :any="http://localhost:3000/StudentCollegeFeesPayment";
   quotesDisplayUrl :any="http://localhost:3000/Quotes";
+  studentReview :any="http://localhost:3000/StudentReview";
 
   getRegisterDetails() {
     return this.http.get(this.registerUrl);
@@ -71,6 +72,10 @@ export class LoginService {
 
   getquotesDisplay(){
     return this.http.get(this.quotesDisplayUrl);
+  }
+
+  getStudentReview() {
+    return this.http.get(this.studentReview);
   }
 
 }

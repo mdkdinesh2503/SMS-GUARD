@@ -25,10 +25,28 @@ export class AboutComponent implements OnInit {
   setTimeOutOpen: any;
   setTimeOutClose: any;
 
+  //For Review Display
+  reviewFromDatabase:any;
+  stars: number[] = [];
+  nonStars:number[] = [];
+
+  generateStarSymbols(rating: any) {
+    let myNumber = parseInt(rating);
+    let decNumber = 5 - myNumber;
+    this.stars = Array(myNumber).fill(0);
+    this.nonStars = Array(decNumber).fill(0);
+    return rating;
+  }
+
   ngOnInit() {
+
     this.auth.removeToken();
 
     // this.openPopupTimeout();
+
+    this.service.getStudentReview().subscribe((data) => {
+      this.reviewFromDatabase = data;
+    });
 
     this.service.getquotesDisplay().subscribe((data) => {
       this.quotesFromDatabase = data;
@@ -106,5 +124,7 @@ export class AboutComponent implements OnInit {
       this.closePopupTimeout();
     }, 7000); //1sec = 1000 milli Seconds
   }
+
+
 
 }

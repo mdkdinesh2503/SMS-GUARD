@@ -34,7 +34,6 @@ export class StudentResultViewComponent implements OnInit {
   bussinessHighspeed: any;
 
   ngOnInit() {
-
     this.acRoute.params.subscribe((params) => {
       this.regFromRes = params['register'];
     });
