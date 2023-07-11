@@ -209,7 +209,11 @@
 
       <div class="AdminResultDetails-list">
 
-        <table class="AdminResultDetails-table">
+        <input type="text" #fileName hidden value="Exam-Results">
+
+        <button class="Excel" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+        <table class="AdminResultDetails-table" #getValues>
 
           <thead>
 

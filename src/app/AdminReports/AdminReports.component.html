@@ -87,7 +87,11 @@
 
         <h1>Student Report Details</h1>
 
-        <table class="AdminStudReport-table">
+        <input type="text" #fileName hidden value="Student-Reports">
+
+        <button class="Excel" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+        <table class="AdminStudReport-table" #getValues>
 
           <thead>
 

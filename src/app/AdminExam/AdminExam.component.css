@@ -273,21 +273,24 @@ table thead tr {
   border-bottom: 2px solid #4070f4;
 }
 
-
-/* .Delete-Container {
-  border: .2rem solid #4070f4;
-  padding: 1rem;
-  margin: 2rem 8%;
-  background-color: #fff;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+.Excel {
+  float: right;
+  color: #fff;
+  margin-top: -2rem;
+  background: #4070f4;
+  box-shadow: .2rem .2rem 0 #d2dfff;
+  font-size: 1.8rem;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-.part {
-  border: .2rem solid #4070f4;
-  padding: 1rem;
-} */
+.Excel:hover {
+  background: #fff;
+  color: #4070f4;
+  border: .1rem solid #4070f4;
+}
 
 
 /*  Admin Exam section ends here */

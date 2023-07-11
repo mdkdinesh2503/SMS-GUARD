@@ -47,7 +47,11 @@
 
         <h1>Review List</h1>
 
-        <table class="table">
+        <input type="text" #fileName hidden value="Student-Review">
+
+          <button class="Excel" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+        <table class="table" #getValues>
 
           <thead>
             <tr>

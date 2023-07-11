@@ -47,7 +47,11 @@
 
       <div class="StudDetails-list">
 
-        <table class="StudDetails-table">
+        <input type="text" #fileName hidden value="Student-Details">
+
+        <button class="Excel" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+        <table class="StudDetails-table" #getValues>
 
           <thead>
 

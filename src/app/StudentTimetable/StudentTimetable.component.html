@@ -43,7 +43,11 @@
 
     <div class="table-container">
 
-      <table *ngFor="let timetable of timetableFromAdmin">
+      <table *ngFor="let timetable of timetableFromAdmin" #getValues>
+
+        <input type="text" #fileName hidden [(ngModel)]="timetable.DEPARTMENT">
+
+        <th><button style="font-size: 1.3rem; font-weight: 900; padding: 3px;background-color: #1abae2;" (click)="clickToConvert(fileName.value, getValues)">Convert Excel</button></th>
 
         <th colspan="8" style="font-size: 1.7rem; padding: 8px;background-color: #1abae2;">{{timetable.YEAR}} -
           {{timetable.DEPARTMENT}}

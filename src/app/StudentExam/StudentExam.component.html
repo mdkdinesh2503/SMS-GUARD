@@ -61,9 +61,13 @@
 
     </div>
 
-    <div class="hall-Allocations" *ngIf="hide1">
+    <div class="hall-Allocations" *ngIf="hide1" #getValues1>
 
       <section class="StudExamDetails">
+
+        <input type="text" #fileName1 hidden value="Exam-Hall-Allocation">
+
+        <button class="btn" (click)="clickToConvert(fileName1.value, getValues1)">Export to Excel</button>
 
         <div class="StudExamDetails-list">
 
@@ -106,9 +110,13 @@
 
     </div>
 
-    <div class="Exam-Timetable" *ngIf="hide2">
+    <div class="Exam-Timetable" *ngIf="hide2" #getValues2>
 
       <section class="StudExamDetails">
+
+        <input type="text" #fileName2 hidden value="Exam-Timetable">
+
+        <button class="btn" (click)="clickToConvert(fileName2.value, getValues2)">Export to Excel</button>
 
         <div class="StudExamDetails-list">
 
@@ -192,15 +200,19 @@
 
     </div>
 
-    <div class="Exam-Fees-Payment-List" *ngIf="hide4">
+    <div class="Exam-Fees-Payment-List" *ngIf="hide4" #getValues3>
 
     <app-Search (searchTextChanged)="onSearchTextEntered($event)"></app-Search>
 
       <section class="StudExamDetails">
 
+        <input type="text" #fileName3 hidden value="Exam-Fees-Payment-List">
+
+        <button class="btn" (click)="clickToConvert(fileName3.value, getValues3)">Export to Excel</button>
+
         <div class="StudExamDetails-list">
 
-          <h1>Exam Timetable</h1>
+          <h1>Exam Fees Payment List</h1>
 
           <table class="StudExamDetails-table">
 

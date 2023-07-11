@@ -55,4 +55,8 @@ export class StudentResultsComponent implements OnInit {
     this.auth.logoutUser() == true;
   }
 
+  clickToConvert(filename:string, data:any) {
+    this.auth.onExportClick(filename, data);
+  }
+
 }

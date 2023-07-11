@@ -131,7 +131,11 @@
 
         <h1>Attendance List</h1>
 
-        <table class="table">
+        <input type="text" #fileName hidden value="Student-Attendance-List">
+
+        <button class="Excel" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+        <table class="table" #getValues>
 
           <thead>
             <tr>

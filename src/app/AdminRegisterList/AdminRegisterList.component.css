@@ -259,4 +259,23 @@ table thead tr {
   transition: 0.5rem;
 }
 
+.Excel {
+  float: right;
+  color: #fff;
+  margin-top: -2rem;
+  background: #4070f4;
+  box-shadow: .2rem .2rem 0 #d2dfff;
+  font-size: 1.8rem;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.Excel:hover {
+  background: #fff;
+  color: #4070f4;
+  border: .1rem solid #4070f4;
+}
+
 /*  Admin Register List section ends here */

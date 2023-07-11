@@ -67,4 +67,8 @@ export class AdminDetailsComponent implements OnInit {
     this.auth.logoutAdmin() == true;
   }
 
+  clickToConvert(filename:string, data:any) {
+    this.auth.onExportClick(filename, data);
+  }
+
 }

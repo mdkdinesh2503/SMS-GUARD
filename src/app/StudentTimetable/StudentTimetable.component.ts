@@ -35,4 +35,8 @@ export class StudentTimetableComponent implements OnInit {
     this.route.navigate(['/login']);
     this.auth.logoutUser() == true;
   }
+
+  clickToConvert(filename:string, data:any) {
+    this.auth.onExportClick(filename, data);
+  }
 }

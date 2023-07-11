@@ -66,4 +66,8 @@ export class AdminReviewComponent implements OnInit {
     this.route.navigate(['/adminreviewopen', id]);
   }
 
+  clickToConvert(filename:string, data:any) {
+    this.auth.onExportClick(filename, data);
+  }
+
 }

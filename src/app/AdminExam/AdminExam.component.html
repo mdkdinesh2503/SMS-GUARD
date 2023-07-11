@@ -131,7 +131,11 @@
 
           <h1>Exam hall Allocations</h1>
 
-          <table class="StudExamDetails-table">
+          <input type="text" #fileName1 hidden value="Exam-Hall-Allocation">
+
+          <button class="Excel" (click)="clickToConvert(fileName1.value, getValues1)">Export to Excel</button>
+
+          <table class="StudExamDetails-table" #getValues1>
 
             <thead>
 
@@ -243,7 +247,11 @@
 
           <h1>Exam Timetable</h1>
 
-          <table class="StudExamDetails-table">
+          <input type="text" #fileName2 hidden value="Exam-Timetable">
+
+          <button class="Excel" (click)="clickToConvert(fileName2.value, getValues2)">Export to Excel</button>
+
+          <table class="StudExamDetails-table" #getValues2>
 
             <thead>
 
@@ -293,9 +301,13 @@
 
         <div class="StudExamDetails-list">
 
-          <h1>Exam Timetable</h1>
+          <h1>Exam Fees Paided List</h1>
 
-          <table class="StudExamDetails-table">
+          <input type="text" #fileName3 hidden value="Exam-Fees-Payment">
+
+          <button class="Excel" (click)="clickToConvert(fileName3.value, getValues3)">Export to Excel</button>
+
+          <table class="StudExamDetails-table" #getValues3>
 
             <thead>
 

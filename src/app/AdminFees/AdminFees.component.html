@@ -49,7 +49,11 @@
 
         <h1>Fees Details</h1>
 
-        <table class="StudFeesDetails-table">
+        <input type="text" #fileName hidden value="Student-Fees-Paided-List">
+
+        <button class="Excel" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+        <table class="StudFeesDetails-table" #getValues>
 
           <thead>
 

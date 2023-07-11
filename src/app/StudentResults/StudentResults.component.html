@@ -44,7 +44,11 @@
 
     <section class="Res">
 
-      <div class="Result-list">
+      <input type="text" #fileName hidden value="Exam-Result">
+
+      <button class="btn" (click)="clickToConvert(fileName.value, getValues)">Export to Excel</button>
+
+      <div class="Result-list" #getValues>
 
         <table class="Result-table">
 
