@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
 
   aminLoginList: any = '';
   registersFromStudent: any = '';
-  detailsFromDatabase:any;
+  detailsFromDatabase: any;
   getValueId: any;
   idDisplay: any;
-  getEmailFromRegister:any;
+  getEmailFromRegister: any;
   emailValue: any;
 
   date: any = this.datepipe.transform(new Date(), 'dd-MM-yyyy');
@@ -71,20 +71,34 @@ export class LoginComponent implements OnInit {
     this.time = this.hours + ':' + this.minutes + ' ' + ampm;
   }
 
+  display: boolean = false;
+
   ngOnInit() {
     this.auth.removeToken();
 
-    this.service.getAdminListDetails().subscribe((data) => {
-      this.aminLoginList = data;
-    });
+    this.service.getAdminListDetails().subscribe(
+      (data) => {
+        this.aminLoginList = data;
+      },
+      (error) => {
+        this.auth.errorDisplay('HttpErrorResponse');
+        this.display = true;
+      }
+    );
 
-    this.service.getRegisterDetails().subscribe((data) => {
-      this.registersFromStudent = data;
-    });
+    this.service.getRegisterDetails().subscribe(
+      (data) => {
+        this.registersFromStudent = data;
+      },
+      (error) => {}
+    );
 
-    this.service.getStudentDetails().subscribe((data) => {
-      this.detailsFromDatabase = data;
-    });
+    this.service.getStudentDetails().subscribe(
+      (data) => {
+        this.detailsFromDatabase = data;
+      },
+      (error) => {}
+    );
   }
 
   mailPresent: boolean = false;
@@ -175,7 +189,9 @@ export class LoginComponent implements OnInit {
           }
 
           for (var i = 0; i < this.detailsFromDatabase.length; i++) {
-            if(this.getEmailFromRegister == this.detailsFromDatabase[i].EMAIL) {
+            if (
+              this.getEmailFromRegister == this.detailsFromDatabase[i].EMAIL
+            ) {
               this.idDisplay = i;
             }
           }
@@ -183,7 +199,7 @@ export class LoginComponent implements OnInit {
           this.auth.storeTokenId(this.idDisplay);
 
           this.auth.storeToken(un);
-          this.auth.userLogin(un, ps).subscribe((data)=> {
+          this.auth.userLogin(un, ps).subscribe((data) => {
             this.route.navigate(['studentdashboard']);
           });
         }
@@ -199,7 +215,7 @@ export class LoginComponent implements OnInit {
       this.userService.loginDetails(body).subscribe((data) => {
         if (confirm('You are Redirect to Admin page') == true) {
           this.auth.storeToken(un);
-          this.auth.userLogin(un, ps).subscribe((data)=> {
+          this.auth.userLogin(un, ps).subscribe((data) => {
             this.route.navigate(['admindashboard']);
           });
         }

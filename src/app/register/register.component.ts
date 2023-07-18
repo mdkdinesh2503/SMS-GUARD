@@ -25,22 +25,32 @@ export class RegisterComponent implements OnInit {
     private auth: AuthService
   ) {}
 
-  canExit():boolean {
-    if(confirm("You are about to leave Register Page, Press Yes to Continue")) {
+  canExit(): boolean {
+    if (
+      confirm('You are about to leave Register Page, Press Yes to Continue')
+    ) {
       return true;
     } else {
       return false;
     }
   }
 
-  registerDetailsfromDatabase:any;
+  registerDetailsfromDatabase: any;
+  display: boolean = false;
 
   ngOnInit() {
     this.auth.removeToken();
 
-    this.loginService.getRegisterDetails().subscribe((data)=> {
-      this.registerDetailsfromDatabase = data;
-    });
+    this.loginService.getRegisterDetails().subscribe(
+      (data) => {
+        this.registerDetailsfromDatabase = data;
+      },
+      (error) => {
+        // console.error('An HTTP error occurred:', error);
+        this.auth.errorDisplay('HttpErrorResponse');
+        this.display = true;
+      }
+    );
   }
 
   registerReactiveForm = this.fb.group(
@@ -55,42 +65,50 @@ export class RegisterComponent implements OnInit {
     }
   );
 
-  condition:boolean = true;
+  condition: boolean = true;
 
-  submitList(username:any, email:any) {
+  submitList(username: any, email: any) {
     if (this.registerReactiveForm.controls['USERNAME'].errors?.['required']) {
       alert('Username is not Empty!!');
-    } else if (this.registerReactiveForm.controls['EMAIL'].errors?.['required']) {
+    } else if (
+      this.registerReactiveForm.controls['EMAIL'].errors?.['required']
+    ) {
       alert('Email is not Empty!!');
-    } else if (this.registerReactiveForm.controls['PASSWORD'].errors?.['required']) {
+    } else if (
+      this.registerReactiveForm.controls['PASSWORD'].errors?.['required']
+    ) {
       alert('Password is not Empty!!');
     } else if (!this.registerReactiveForm.valid) {
       alert('Field must not contain any error');
     } else {
-
-      for(var i=0;i<this.registerDetailsfromDatabase.length;i++) {
-        if(username == this.registerDetailsfromDatabase[i].USERNAME) {
-          alert("Username is Already Exist");
-          this.condition = false;
-        }else if(email == this.registerDetailsfromDatabase[i].EMAIL) {
-          alert("Email is Already Exist");
-          this.condition = false;
-        }else{
-
+      try {
+        for (var i = 0; i < this.registerDetailsfromDatabase.length; i++) {
+          if (username == this.registerDetailsfromDatabase[i].USERNAME) {
+            alert('Username is Already Exist');
+            this.condition = false;
+          } else if (email == this.registerDetailsfromDatabase[i].EMAIL) {
+            alert('Email is Already Exist');
+            this.condition = false;
+          } else {
+          }
         }
+      } catch (error) {
+        alert(error);
       }
 
-      if(this.condition) {
+      if (this.condition) {
         this.userService
-        .addRegisters(this.registerReactiveForm.value)
-        .subscribe((data) => {
-          alert('Registered Successfull');
-          this.route.navigate(['/login']);
-        });
+          .addRegisters(this.registerReactiveForm.value)
+          .subscribe(
+            (data) => {
+              alert('Registered Successfull');
+              this.route.navigate(['/login']);
+            },
+            (error) => {}
+          );
       }
 
       window.location.reload();
-
     }
   }
 }

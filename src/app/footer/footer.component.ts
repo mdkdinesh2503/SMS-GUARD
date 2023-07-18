@@ -28,16 +28,18 @@ export class FooterComponent implements OnInit {
     var body = {
       NEWS_MAIL: email,
     };
-    if(email != '') {
+    if (email != '') {
       if (this.emailReactiveForm.valid) {
-        this.userService.newsLetter(body).subscribe((data) => {
-          alert('You are Subscribed Successfully!!!');
-          window.location.reload();
-        });
-    }else {
-      alert('Field is not Empty!!!');
-    }
-
+        this.userService.newsLetter(body).subscribe(
+          (data) => {
+            alert('You are Subscribed Successfully!!!');
+            window.location.reload();
+          },
+          (error) => {}
+        );
+      } else {
+        alert('Field is not Empty!!!');
+      }
     }
   }
 }

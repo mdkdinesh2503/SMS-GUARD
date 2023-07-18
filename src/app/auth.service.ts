@@ -84,4 +84,14 @@ export class AuthService {
     xlsx.writeFile(workBook, fileName+'.xlsx');
   }
 
+  AlertMessage:String ="";
+
+  errorDisplay(message:any) {
+    this.AlertMessage = message;
+  }
+
+  errorPage() {
+    return this.AlertMessage;
+  }
+
 }

@@ -26,9 +26,9 @@ export class AboutComponent implements OnInit {
   setTimeOutClose: any;
 
   //For Review Display
-  reviewFromDatabase:any;
+  reviewFromDatabase: any;
   stars: number[] = [];
-  nonStars:number[] = [];
+  nonStars: number[] = [];
 
   generateStarSymbols(rating: any) {
     let myNumber = parseInt(rating);
@@ -38,29 +38,39 @@ export class AboutComponent implements OnInit {
     return rating;
   }
 
-  ngOnInit() {
+  display: boolean = false;
 
+  ngOnInit() {
     this.auth.removeToken();
 
     // this.openPopupTimeout();
 
-    this.service.getStudentReview().subscribe((data) => {
-      this.reviewFromDatabase = data;
-    });
+    this.service.getStudentReview().subscribe(
+      (data) => {
+        this.reviewFromDatabase = data;
+      },
+      (error) => {
+        this.auth.errorDisplay('HttpErrorResponse');
+        this.display = true;
+      }
+    );
 
-    this.service.getquotesDisplay().subscribe((data) => {
-      this.quotesFromDatabase = data;
-      var randomNumber;
+    this.service.getquotesDisplay().subscribe(
+      (data) => {
+        this.quotesFromDatabase = data;
+        var randomNumber;
 
-      this.quoteData = this.quotesFromDatabase[0].quote;
-      this.authorData = this.quotesFromDatabase[0].author;
+        this.quoteData = this.quotesFromDatabase[0].quote;
+        this.authorData = this.quotesFromDatabase[0].author;
 
-      setInterval(() => {
-        randomNumber = Math.floor(Math.random() * 15) + 1;
-        this.quoteData = this.quotesFromDatabase[randomNumber].quote;
-        this.authorData = this.quotesFromDatabase[randomNumber].author;
-      }, 7000); // no changes
-    });
+        setInterval(() => {
+          randomNumber = Math.floor(Math.random() * 15) + 1;
+          this.quoteData = this.quotesFromDatabase[randomNumber].quote;
+          this.authorData = this.quotesFromDatabase[randomNumber].author;
+        }, 7000); // no changes
+      },
+      (error) => {}
+    );
   }
 
   displayDateAndTime: any = setInterval(() => {
@@ -90,7 +100,13 @@ export class AboutComponent implements OnInit {
       clearInterval(this.displayDateAndTime);
       this.PopupMsg = false;
       // Start timer enable here for popup offer
-    } else if (hour == 6 && minute >= 24 && year == 2023 && month == 6 && ap == 'PM') {
+    } else if (
+      hour == 6 &&
+      minute >= 24 &&
+      year == 2023 &&
+      month == 6 &&
+      ap == 'PM'
+    ) {
       var days = Math.floor(duration / (1000 * 60 * 60 * 24));
       var hours = Math.floor(
         (duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -124,7 +140,4 @@ export class AboutComponent implements OnInit {
       this.closePopupTimeout();
     }, 7000); //1sec = 1000 milli Seconds
   }
-
-
-
 }

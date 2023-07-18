@@ -21,6 +21,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { PageErrorComponent } from './PageError/PageError.component';
 import { SearchComponent } from './Search/Search.component';
 import { NotuploadedComponent } from './notuploaded/notuploaded.component';
+import { ErrorDisplayComponent } from './ErrorDisplay/ErrorDisplay.component';
 
 import { AdminDashboardComponent } from './AdminDashboard/AdminDashboard.component';
 import { AdminNavbarComponent } from './AdminNavbar/AdminNavbar.component';
@@ -100,7 +101,8 @@ import { StudentReviewComponent } from './StudentReview/StudentReview.component'
       StudentProfileComponent,
       StudentReviewComponent,
       AdminReviewComponent,
-      AdminReviewViewComponent
+      AdminReviewViewComponent,
+      ErrorDisplayComponent
    ],
   imports: [
     BrowserModule,
